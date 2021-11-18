@@ -10,9 +10,10 @@ export default function Home() {
       <Head>
         <title>mood-radio</title>
       </Head>
-      test
-      <Example/>
 
+      <div className="max-w-md m-auto pt-10">
+        <Example/>
+      </div>
     </>
   )
 }
