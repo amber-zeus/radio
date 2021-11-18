@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import {Title, Example, Info} from "../components/index"
+import {Title, Example, Info} from "../components/frontend"
 
 export default function Home() {
   return (
