@@ -1,6 +1,4 @@
-import {useState} from "react";
-import {Button, Input} from 'antd';
-import { Progress } from 'antd';
+import {Button, Input, Progress} from 'antd';
 
 export const Example = () => {
   const {Search} = Input;
@@ -22,22 +20,54 @@ export const Example = () => {
         <h2>In next suggestion I want:</h2>
 
 
-        <div>popularity</div>
-        <div>energy</div>
-        <div>danceability</div>
-        <div>happiness</div>
-        <div>acousticness</div>
-        <div>instrumentalness</div>
-        <div>liveness</div>
-        <div>speechiness</div>
-        <Button type="primary">Search! and show me next 3 tracks</Button>
-
-        <br/>
-        <Progress percent={30} steps={5} />
-        <br/>
-        <Progress percent={46} steps={5} />
+        <div className="text-center">
 
 
+          <div className="py-3">
+            - popularity +
+            <br/>
+            <Progress percent={30} steps={5}/>
+          </div>
+
+          <div className="py-3">
+            - danceability +
+            <br/>
+            <Progress percent={30} steps={5}/>
+          </div>
+
+          <div className="py-3">
+            happiness
+            <br/>
+            <Progress percent={30} steps={5}/>
+          </div>
+
+          <div className="py-3">
+            acousticness
+            <br/>
+            <Progress percent={30} steps={5}/>
+          </div>
+
+          <div className="py-3">
+            instrumentalness
+            <br/>
+            <Progress percent={30} steps={5}/>
+          </div>
+
+          <div className="py-3">
+            liveness
+            <br/>
+            <Progress percent={30} steps={5}/>
+          </div>
+
+          <div className="py-3">
+            speechiness
+            <br/>
+            <Progress percent={30} steps={5}/>
+          </div>
+
+          <Button type="primary">Search! and show me next 3 tracks</Button>
+
+        </div>
       </div>
 
     </div>
