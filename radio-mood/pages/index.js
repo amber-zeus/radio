@@ -1,9 +1,18 @@
 import Head from 'next/head'
+import {Example} from "../components/Example";
+import { Button, DatePicker } from 'antd';
+
+
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen py-2">
-     tailwind example
-    </div>
+    <>
+      <Head>
+        <title>mood-radio</title>
+      </Head>
+      test
+      <Example/>
+
+    </>
   )
 }
