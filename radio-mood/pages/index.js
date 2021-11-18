@@ -1,8 +1,5 @@
 import Head from 'next/head'
-import {Example} from "../components/Example";
-import { Button, DatePicker } from 'antd';
-
-
+import {Title, Example, Info} from "../components/index"
 
 export default function Home() {
   return (
@@ -11,7 +8,10 @@ export default function Home() {
         <title>mood-radio</title>
       </Head>
 
-      <div className="max-w-md m-auto pt-6">
+      <div className="max-w-md m-auto p-8">
+
+        <Title/>
+        <Info/>
         <Example/>
       </div>
     </>

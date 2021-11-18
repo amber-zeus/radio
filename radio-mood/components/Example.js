@@ -4,11 +4,9 @@ export const Example = () => {
   const {Search} = Input;
   const onSearch = value => console.log(value);
   return (
-    <div className="p-6">
-      <h1 className="text-3xl">mood radio</h1>
-
+    <div className="">
       <div className="py-4">
-        <h2>Search track (spotify ID)</h2>
+        <h2>Search track in Newonce Database (spotify ID)</h2>
         <Search placeholder="Track name" onSearch={onSearch} enterButton/>
       </div>
       <div className="py-4">
