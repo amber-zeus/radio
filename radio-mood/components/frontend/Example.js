@@ -10,12 +10,11 @@ export const Example = () => {
         <Search placeholder="Track name" onSearch={onSearch} enterButton/>
       </div>
       <div className="py-4">
-        <h2>Show me recommendation</h2>
+        <h2>Show me parametrs of that song (id)</h2>
         <Search placeholder="Spotify ID" onSearch={onSearch} enterButton/>
       </div>
-      here parsed data from tracks
       <div className="py-4">
-        <h2>In next suggestion I want:</h2>
+        <h2>Suggest me a track with these parameters:</h2>
 
 
         <div className="text-center">
