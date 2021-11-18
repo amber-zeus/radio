@@ -1,5 +1,6 @@
 import {useState} from "react";
 import {Button, Input} from 'antd';
+import { Progress } from 'antd';
 
 export const Example = () => {
   const {Search} = Input;
@@ -31,6 +32,10 @@ export const Example = () => {
         <div>speechiness</div>
         <Button type="primary">Search! and show me next 3 tracks</Button>
 
+        <br/>
+        <Progress percent={30} steps={5} />
+        <br/>
+        <Progress percent={46} steps={5} />
 
 
       </div>
