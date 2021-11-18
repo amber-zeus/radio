@@ -6,7 +6,7 @@ export const Example = () => {
   const {Search} = Input;
   const onSearch = value => console.log(value);
   return (
-    <div>
+    <div className="p-6">
       <h1 className="text-3xl">mood radio</h1>
 
       <div className="py-4">

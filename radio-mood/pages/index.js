@@ -11,7 +11,7 @@ export default function Home() {
         <title>mood-radio</title>
       </Head>
 
-      <div className="max-w-md m-auto pt-10">
+      <div className="max-w-md m-auto pt-6">
         <Example/>
       </div>
     </>
