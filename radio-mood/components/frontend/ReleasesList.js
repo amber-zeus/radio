@@ -17,13 +17,15 @@ export default function ReleasesList({
     ;
 
     return releases.map(release => (
-      <div className="my-4 px-4 w-1/2 overflow-hidden h-96">
+      <div className="w-1/2 overflow-hidden">
         <Link href={`albums/${release.name}_${release.artist}`}>
-          <div className="text-center p-4 border-2 m-4 cursor-pointer border-gray-500 hover:border-black"
+          <div className="text-center p-4 border-2 cursor-pointer border-white hover:border-black flex"
                onClick={() => onReleaseClick(release)}>
-            <p>{release.artist}</p>
-            <Image width={200} height={200} src={release.imageUrl}/>
-            <h3>{release.name}</h3>
+            <Image width={250} height={250} src={release.imageUrl}/>
+            <div className="p-2 align-middle justify-content text-center w-full h-full pt-8 text-lg">
+              <p style={{fontFamily: "HelveticaNowDisplayBlk"}}>{release.artist}</p>
+              <p className="text-sm text-base" style={{fontFamily: "HelveticaNowTextBold"}}>{release.name}</p>
+            </div>
           </div>
         </Link>
       </div>

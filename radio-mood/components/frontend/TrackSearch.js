@@ -35,7 +35,7 @@ export default function TrackSearch({ onTrackClick = () => {} }) {
         {trackList.map(track => (
           <div
             onClick={() => onTrackClick(track.id)}
-            className="w-40 h-20 bg-gray-300 m-1"
+            className="bg-gray-300 m-1"
           >
             <h3>{track.name}</h3>
             <p>{track.artist}</p>

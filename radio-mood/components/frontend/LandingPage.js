@@ -22,8 +22,6 @@ export const LandingPage = () => {
   return (
     <div className="">
       <div className="py-4">
-        <h1>Select an Album</h1>
-
         <ReleasesList releases={releases} loading={loading} />
       </div>
     </div>
