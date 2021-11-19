@@ -1,3 +1,3 @@
-export * from './Example'
-export * from './Info'
-export * from './Title'
+export * from './LandingPage';
+export * from './Info';
+export * from './Title';

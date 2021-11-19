@@ -1,7 +1,6 @@
-import Head from 'next/head'
-import {Title, Example, Info} from "../components/frontend"
-import {AccessToken} from "../components/backend"
-
+import Head from 'next/head';
+import { Title, LandingPage, Info } from '../components/frontend';
+import { AccessToken } from '../components/backend';
 
 export default function Home() {
   return (
@@ -12,10 +11,10 @@ export default function Home() {
 
       <div className="max-w-md m-auto p-8">
         {/*<AccessToken/>*/}
-        <Title/>
-        <Info/>
-        <Example/>
+        <Title />
+        <Info />
+        <LandingPage />
       </div>
     </>
-  )
+  );
 }
