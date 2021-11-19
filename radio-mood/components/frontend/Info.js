@@ -1,6 +1,6 @@
 export const Info = () => {
   return (
-    <div className="italic">
+    <div className="italic" style={{fontFamily: "HelveticaNowTextBold"}}>
       <span className="font-extrabold">Album covers and track titles</span>
       <br/>doesn't tell us much about the mood of the album.
 
