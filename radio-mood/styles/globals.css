@@ -25,3 +25,17 @@
 * {
     box-sizing: border-box;
 }
+
+.genre {
+    position: absolute;
+    bottom:0;
+    right:0;
+    text-transform: uppercase;
+    color: white;
+    box-shadow: 3px 3px 0 black;
+    padding:4px;
+    font-size:14px;
+    border: 2px solid black;
+    text-decoration: none;
+    background-color: #1300e8;
+}

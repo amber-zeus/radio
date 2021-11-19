@@ -1,21 +1,25 @@
-import { useState, useEffect } from 'react';
-import { Input } from 'antd';
+import {useEffect, useState} from 'react';
+import {Input} from 'antd';
 import fetchNewonceApi from '../../lib/apiHelpers/fetchNewonceApi';
-import { throttle } from 'lodash';
+import {throttle} from 'lodash';
 
-export default function TrackSearch({ onTrackClick = () => {} }) {
+export default function TrackSearch({
+                                      onTrackClick = () => {
+                                      }
+                                    }) {
   const [query, setQuery] = useState('');
   const [trackList, setTrackList] = useState([]);
 
   const onSearch = async search_query => {
     fetchNewonceApi('releases', {
-      params: { search_query, page: 0, per_page: 10 },
+      params: {search_query, page: 0, per_page: 10},
     }).then(res => {
       setTrackList(
         res.items.map(release => ({
           id: release.id,
           name: release.name,
           artist: release.artist_name,
+          date: release.release_date,
         })),
       );
     });
@@ -30,7 +34,7 @@ export default function TrackSearch({ onTrackClick = () => {} }) {
 
   return (
     <div>
-      <Input onChange={({ target }) => setQuery(target.value)} />
+      <Input onChange={({target}) => setQuery(target.value)}/>
       <div className="flex flex-wrap">
         {trackList.map(track => (
           <div

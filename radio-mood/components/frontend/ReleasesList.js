@@ -14,7 +14,7 @@ export default function ReleasesList({
     if (!releases?.length) {
       return <p></p>
     }
-    ;
+
 
     return releases.map(release => (
       <div className="w-1/2 overflow-hidden">
@@ -25,6 +25,9 @@ export default function ReleasesList({
             <div className="p-2 align-middle justify-content text-center w-full h-full pt-8 text-lg">
               <p style={{fontFamily: "HelveticaNowDisplayBlk"}}>{release.artist}</p>
               <p className="text-sm text-base" style={{fontFamily: "HelveticaNowTextBold"}}>{release.name}</p>
+            </div>
+            <div className="relative">
+              <div className="genre">{release.releaseDate.slice(0, 4)}</div>
             </div>
           </div>
         </Link>
