@@ -1,6 +1,7 @@
-import Head from 'next/head';
-import { Title, LandingPage, Info } from '../components/frontend';
-import { AccessToken } from '../components/backend';
+import Head from 'next/head'
+import {Info, Title} from "../components/frontend"
+import {Album} from "../components/frontend/Album";
+
 
 export default function Home() {
   return (
@@ -9,11 +10,15 @@ export default function Home() {
         <title>mood-radio</title>
       </Head>
 
-      <div className="max-w-md m-auto p-8">
-        {/*<AccessToken/>*/}
-        <Title />
-        <Info />
-        <LandingPage />
+      <div className="mt-4">
+        <div className="max-w-md m-auto p-8 border-4 border-black">
+          <Title/>
+          <Info/>
+          <Album/>
+          <Album/>
+          <Album/>
+          <Album/>
+        </div>
       </div>
     </>
   )
