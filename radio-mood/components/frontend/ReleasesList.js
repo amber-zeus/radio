@@ -19,7 +19,7 @@ export default function ReleasesList({
     return releases.map(release => (
       <div className="w-1/2 overflow-hidden">
         <Link href={`albums/${release.name}_${release.artist}`}>
-          <div className="text-center p-4 border-2 cursor-pointer border-white hover:border-black flex"
+          <div className="text-center p-4 border-2 cursor-pointer border-gray-100 m-2 hover:border-black flex"
                onClick={() => onReleaseClick(release)}>
             <Image width={250} height={250} src={release.imageUrl}/>
             <div className="p-2 align-middle justify-content text-center w-full h-full pt-8 text-lg">
