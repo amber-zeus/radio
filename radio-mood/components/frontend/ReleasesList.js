@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function ReleasesList({
   releases,
   loading,
@@ -11,10 +13,13 @@ export default function ReleasesList({
     };
 
     return releases.map(release => (
+      <Link href="albums/test">
       <div className="text-center p-4 border-2 m-4 cursor-pointer hover:border-black" onClick={() => onReleaseClick(release)}>
         <h3>{release.name}</h3>
         <p>{release.artist}</p>
       </div>
+      </Link>
+
     ));
   };
 

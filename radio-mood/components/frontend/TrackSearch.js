@@ -39,6 +39,7 @@ export default function TrackSearch({ onTrackClick = () => {} }) {
           >
             <h3>{track.name}</h3>
             <p>{track.artist}</p>
+
           </div>
         ))}
       </div>
