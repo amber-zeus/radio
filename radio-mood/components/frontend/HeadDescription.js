@@ -1,4 +1,4 @@
-export const Info = () => {
+export const HeadDescription = () => {
   return (
     <div className="italic" style={{fontFamily: "HelveticaNowTextBold"}}>
       <span className="font-extrabold">Album covers and track titles</span>

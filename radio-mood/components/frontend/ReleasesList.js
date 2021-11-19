@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from 'next/image'
 
 export default function ReleasesList({
                                        releases,
@@ -16,12 +17,12 @@ export default function ReleasesList({
     ;
 
     return releases.map(release => (
-      <div className="my-2 px-2 w-1/3 overflow-hidden">
+      <div className="my-4 px-4 w-1/2 overflow-hidden h-96">
         <Link href={`albums/${release.name}_${release.artist}`}>
-          <div className="text-center p-4 border-2 m-4 cursor-pointer hover:border-black"
+          <div className="text-center p-4 border-2 m-4 cursor-pointer border-gray-500 hover:border-black"
                onClick={() => onReleaseClick(release)}>
             <p>{release.artist}</p>
-            <img src={release.imageUrl}/>
+            <Image width={200} height={200} src={release.imageUrl}/>
             <h3>{release.name}</h3>
           </div>
         </Link>
@@ -30,6 +31,6 @@ export default function ReleasesList({
     ));
   };
 
-  return <div className="flex flex-wrap overflow-hidden"
+  return <div className="flex flex-wrap -mx-4 overflow-hidden"
               style={{fontFamily: "HelveticaNowDisplayBlk"}}>{renderList()}</div>;
 }

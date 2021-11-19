@@ -1,4 +1,4 @@
-export const Title = (style) => {
+export const HeadTitle = (style) => {
   return (
     <h1 className="text-4xl bold pb-4 pt-4" style={style}>
       mood albums

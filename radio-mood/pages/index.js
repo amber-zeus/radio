@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import {Info, LandingPage, Title} from "../components/frontend"
+import {HeadDescription, LandingPage, HeadTitle} from "../components/frontend"
 import ReleasesList from "../components/frontend/ReleasesList";
 import Link from 'next/link'
 
@@ -11,10 +11,10 @@ export default function Home() {
       </Head>
 
       <div className="mt-4 mx-2 pb-12">
-        <div className="max-w-3xl m-auto p-8 border-4 border-black" style={{fontFamily: "MontserratV18Latin900"}}>
+        <div className="max-w-4xl m-auto p-8 border-2 border-black" style={{fontFamily: "MontserratV18Latin900"}}>
 
-          <Title style={{fontFamily: "HelveticaNowTextBold"}}/>
-          <Info />
+          <HeadTitle style={{fontFamily: "HelveticaNowTextBold"}}/>
+          <HeadDescription />
 
           <ReleasesList/>
           <LandingPage/>
