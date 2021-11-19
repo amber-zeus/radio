@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import {Title, Example, Info} from "../components/frontend"
 
+
 export default function Home() {
   return (
     <>
@@ -9,6 +10,8 @@ export default function Home() {
       </Head>
 
       <div className="max-w-md m-auto p-8">
+
+
 
         <Title/>
         <Info/>
