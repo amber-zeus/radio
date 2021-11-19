@@ -10,8 +10,9 @@ export default function Home() {
         <title>mood-radio</title>
       </Head>
 
-      <div className="mt-4">
-        <div className="max-w-md m-auto p-8 border-4 border-black" style={{fontFamily: "MontserratV18Latin900"}}>
+      <div className="mt-4 mx-2 pb-12">
+        <div className="max-w-3xl m-auto p-8 border-4 border-black" style={{fontFamily: "MontserratV18Latin900"}}>
+
           <Title style={{fontFamily: "HelveticaNowTextBold"}}/>
           <Info />
 
