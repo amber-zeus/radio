@@ -15,8 +15,9 @@ export default function ReleasesList({
     return releases.map(release => (
       <Link href={`albums/${release.name}_${release.artist}`}>
       <div className="text-center p-4 border-2 m-4 cursor-pointer hover:border-black" onClick={() => onReleaseClick(release)}>
-        <h3>{release.name}</h3>
         <p>{release.artist}</p>
+        <img src={release.imageUrl} />
+        <h3>{release.name}</h3>
       </div>
       </Link>
 
