@@ -11,10 +11,7 @@ export default function Home() {
       </Head>
 
       <div className="max-w-md m-auto p-8">
-        <AccessToken/>
-
-
-
+        {/*<AccessToken/>*/}
         <Title/>
         <Info/>
         <Example/>
