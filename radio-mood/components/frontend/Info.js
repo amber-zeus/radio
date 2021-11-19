@@ -1,18 +1,13 @@
 export const Info = () => {
   return (
     <div className="italic">
-      <span className="font-extrabold">Song recommendations</span>
-      <br/>are often better or worse.
+      <span className="font-extrabold">Album covers and track titles</span>
+      <br/>doesn't tell us much about the mood of the album.
+
       <br/>
       <br/>
-      But what if we want similar song based on our mood?
+      But we could show you how vibes changes through the album
       <br/>
-      <br/>
-      <span className="font-bold">happier</span>?
-      <br/>
-      less <span className="font-bold">popular</span>?
-      <br/>
-      more <span className="font-bold">danceable</span>?
     </div>
   )
 }
