@@ -1,28 +1,27 @@
-import {useEffect, useState} from 'react';
-import {Input} from 'antd';
-import fetchNewonceApi from '../../lib/apiHelpers/fetchNewonceApi';
-import {throttle} from 'lodash';
+import { useEffect, useState } from 'react';
+import { Input } from 'antd';
+import newonceApiClient from '../../lib/apiClients/NewonceApiClient';
+import { throttle } from 'lodash';
 
-export default function TrackSearch({
-                                      onTrackClick = () => {
-                                      }
-                                    }) {
+export default function TrackSearch({ onTrackClick = () => {} }) {
   const [query, setQuery] = useState('');
   const [trackList, setTrackList] = useState([]);
 
   const onSearch = async search_query => {
-    fetchNewonceApi('releases', {
-      params: {search_query, page: 0, per_page: 10},
-    }).then(res => {
-      setTrackList(
-        res.items.map(release => ({
-          id: release.id,
-          name: release.name,
-          artist: release.artist_name,
-          date: release.release_date,
-        })),
-      );
-    });
+    newonceApiClient
+      .fetch('releases', {
+        params: { search_query, page: 0, per_page: 10 },
+      })
+      .then(res => {
+        setTrackList(
+          res.items.map(release => ({
+            id: release.id,
+            name: release.name,
+            artist: release.artist_name,
+            date: release.release_date,
+          })),
+        );
+      });
   };
 
   useEffect(() => {
@@ -34,7 +33,7 @@ export default function TrackSearch({
 
   return (
     <div>
-      <Input onChange={({target}) => setQuery(target.value)}/>
+      <Input onChange={({ target }) => setQuery(target.value)} />
       <div className="flex flex-wrap">
         {trackList.map(track => (
           <div
@@ -43,7 +42,6 @@ export default function TrackSearch({
           >
             <h3>{track.name}</h3>
             <p>{track.artist}</p>
-
           </div>
         ))}
       </div>

@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
-import fetchNewonceApi from '../../lib/apiHelpers/fetchNewonceApi';
+import newonceApiClient from '../../lib/apiClients/NewonceApiClient';
 import ReleasesList from './ReleasesList';
 export const LandingPage = () => {
   const [releases, setReleases] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetchNewonceApi('releases/most_rated').then(releasesData => {
+    newonceApiClient.fetch('releases/most_rated').then(releasesData => {
       setReleases(
         releasesData.map(release => ({
           artist: release.artist_name,
