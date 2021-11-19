@@ -39,3 +39,16 @@
     color:black;
     opacity:0.8;
 }
+
+.genreRelative {
+    text-transform: uppercase;
+    box-shadow: 3px 3px 0 black;
+    padding:4px;
+    font-size:12px;
+    border: 2px solid black;
+    text-decoration: none;
+    color:black;
+    opacity:0.8;
+    max-width: 100px;
+    margin:auto;
+}
