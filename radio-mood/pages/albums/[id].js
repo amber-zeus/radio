@@ -2,6 +2,7 @@ import Link from 'next/link';
 import {OneTrackGraph,} from '../../components/frontend';
 import {useRouter} from 'next/router';
 import {Graph} from "../../components/frontend/Graph";
+import Image from 'next/image'
 
 const mockedServerAudioFeatures = {
   energy: 0.842,
@@ -12,7 +13,7 @@ const mockedServerAudioFeatures = {
   speechiness: 0.0556,
 };
 
-const AlbumDetails = ({ children, href }) => {
+const AlbumDetails = ({children, href}) => {
   const router = useRouter();
   // debugger
   if (router === undefined) {
@@ -35,6 +36,9 @@ const AlbumDetails = ({ children, href }) => {
     "Michael Essien Birthday Party"]
 
   const [album, artist] = router.query?.id?.split('_') || [];
+  const album_data = JSON.parse(router.query?.album || '{}');
+
+  console.log(album_data.imageUrl)
 
   console.log(album);
   console.log(artist);
@@ -65,6 +69,16 @@ const AlbumDetails = ({ children, href }) => {
         >
           <div className="text-5xl ">{artist}</div>
           <div className="text-3xl mt-2">{album}</div>
+        </div>
+
+        <div className="p-4">
+          {(album_data.imageUrl) &&
+          <Image src={album_data.imageUrl}
+                 height={300}
+                 width={300}
+                 layout="intrinsic"
+          />
+          }
         </div>
 
         <Graph/>

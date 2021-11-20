@@ -29,7 +29,7 @@ export default function ReleasesList({
                onClick={() => {
                  onReleaseClick(release)
                  setAlbumDetails(release)
-                 router.push({pathname: `albums/${release.name}_${release.artist}`, query: {album: release}})
+                 router.push({pathname: `albums/${release.name}_${release.artist}`, query: {album: JSON.stringify(release)}})
                }
                }>
             <Image width={250} height={250} src={release.imageUrl} layout="intrinsic"/>
