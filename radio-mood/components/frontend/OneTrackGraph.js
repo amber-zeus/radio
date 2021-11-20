@@ -1,30 +1,30 @@
 import React from "react";
-import {PolarAngleAxis, PolarGrid, PolarRadiusAxis, Radar, RadarChart} from "recharts";
+import {PolarAngleAxis, PolarGrid, PolarRadiusAxis, Radar, RadarChart, Tooltip} from "recharts";
 
-const data = [
+const buildData = ({speechiness, energy, acousticness, instrumentalness, liveness, ...data}) => [
   {
     subject: "energy",
-    A: rand(),
+    A: energy,
     fullMark: 100
   },
   {
     subject: "speechiness",
-    A: rand(),
+    A: speechiness,
     fullMark: 100
   },
   {
     subject: "acousticness",
-    A: rand(),
+    A: acousticness,
     fullMark: 100
   },
   {
     subject: "instrumentalness",
-    A: rand(),
+    A: instrumentalness,
     fullMark: 100
   },
   {
     subject: "liveness",
-    A: rand(),
+    A: liveness,
     fullMark: 100
   },
 ];
@@ -33,27 +33,42 @@ function rand() {
   return (Math.floor(Math.random() * 100))
 }
 
-export const OneTrackGraph = () => {
+const CustomTooltip = ({ active, payload, label }) => {
+  if (active && payload && payload.length) {
+    return (
+      <div className="custom-tooltip">
+        <p className="label">{`${label} : ${payload[0].value}`}</p>
+        <p className="intro">{label}</p>
+        <p className="desc">Anything you want can be displayed here.</p>
+      </div>
+    );
+  }
+
+  return null;
+};
+export const OneTrackGraph = ({track}) => {
   return (
     <div className="m-auto">
-
       <RadarChart
         cx={300}
         cy={250}
         outerRadius={200}
         width={600}
         height={420}
-        data={data}
+        data={buildData(track || {})}
       >
         <PolarGrid/>
+
         <PolarAngleAxis dataKey="subject"/>
         <PolarRadiusAxis/>
         <Radar
+          radiusAxis={{domain: [0, 1]}}
           name="Mike"
           dataKey="A"
           stroke="#8884d8"
           fill="#8884d8"
           fillOpacity={0.6}
+          tooltipType={'label-percent'}
         />
       </RadarChart>
     </div>

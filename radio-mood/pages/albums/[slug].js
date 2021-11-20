@@ -12,8 +12,9 @@ const AlbumDetails = () => {
   const {slug} = router.query;
   const [albumDetails, setAlbumDetails] = useState(null);
   const [trackList, setTrackList] = useState(null);
-  const [showFilters, setShowFilters] = useState(false);
+  const [showFilters, setShowFilters] = useState(true);
   const [whichBars, setWhichBars] = useState([1, 1, 1, 1, 1, 1])
+  const [selectedTrack, setSelectedTrack] = useState(null);
 
   useEffect(() => {
     if (slug) {
@@ -132,14 +133,14 @@ const AlbumDetails = () => {
           >
             {trackList &&
             trackList.map((track, index) => (
-              <li className="cursor-pointer border-2 m-1 p-1.5 hover:border-black">
+              <li className="cursor-pointer border-2 m-1 p-1.5 hover:border-black" onClick={() => {setSelectedTrack(track)}}>
                 {index + 1}. {track.name}
               </li>
             ))}
           </ul>
 
           <div className="m-auto flex justify-content mb-4">
-            <OneTrackGraph/>
+            <OneTrackGraph track={selectedTrack}/>
           </div>
         </div>
       </div>
