@@ -9,18 +9,24 @@ export const LandingPage = () => {
   const router = useRouter();
 
   useEffect(() => {
-    newonceApiClient.fetch('releases/most_rated').then(releasesData => {
-      setReleases(
-        releasesData.map(release => ({
-          artist: release.artist_name,
-          imageUrl: release.image.url,
-          name: release.name,
-          releaseDate: release.release_date,
-          slug: release.slug,
-        })),
-      );
-      setLoading(false);
-    });
+    newonceApiClient
+      .fetch('releases/most_rated')
+      .then(releasesData => {
+        setReleases(
+          releasesData.map(release => ({
+            artist: release.artist_name,
+            imageUrl: release.image.url,
+            name: release.name,
+            releaseDate: release.release_date,
+            slug: release.slug,
+          })),
+        );
+        setLoading(false);
+      })
+      .catch(_ => {
+        alert('Api call failed try again in a few minutes');
+        setTimeout(() => router.push('/'), 60000);
+      });
   }, []);
 
   return (
