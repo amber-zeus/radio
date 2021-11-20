@@ -6,6 +6,7 @@ import Image from 'next/image';
 import SpotifyServiceClient from '../../lib/apiClients/SpotifyServiceClient';
 import { useEffect, useState } from 'react';
 import NewonceApiClient from '../../lib/apiClients/NewonceApiClient';
+import { TiArrowLeftThick } from 'react-icons/ti';
 
 const AlbumDetails = () => {
   const router = useRouter();
@@ -87,16 +88,20 @@ const AlbumDetails = () => {
           <div className="mb-10">
             <Link href="/" className="">
               <div
-                className="text-2xl border border-2 w-40 border-gray-300 text-center p-2 hover:border-black cursor-pointer text-blue-900"
-                style={{ fontFamily: 'HelveticaNowDisplayBlk' }}
+                className="text-2xl border border-2 w-40 border-gray-300 text-center p-2 hover:border-black cursor-pointer text-newonceBlue flex items-center "
+                style={{
+                  fontFamily: 'HelveticaNowDisplayBlk',
+                  textShadow: '2px 1px #000',
+                }}
               >
+                <TiArrowLeftThick className="mr-2" />
                 go back
               </div>
             </Link>
           </div>
 
           <div
-            className="bg-blue-700 text-white p-4 text-center"
+            className="bg-newonceBlue text-white p-4 text-center"
             style={{ fontFamily: 'MontserratV18Latin900' }}
           >
             <div className="text-5xl ">{albumDetails.artistName}</div>
