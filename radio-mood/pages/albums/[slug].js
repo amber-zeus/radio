@@ -7,6 +7,10 @@ import SpotifyServiceClient from '../../lib/apiClients/SpotifyServiceClient';
 import { useEffect, useState } from 'react';
 import NewonceApiClient from '../../lib/apiClients/NewonceApiClient';
 import { TiArrowLeftThick } from 'react-icons/ti';
+import { TiFlash } from 'react-icons/ti';
+import { GiBootPrints, GiTrumpet, GiNothingToSay } from 'react-icons/gi';
+import { FaGuitar } from 'react-icons/fa';
+import { BiPulse } from 'react-icons/bi';
 
 const AlbumDetails = () => {
   const router = useRouter();
@@ -156,51 +160,57 @@ const AlbumDetails = () => {
 
           <div className="mt-4 flex flex-wrap m-auto justify-center">
             <div
-              className={`cursor-pointer border-2 border-gray-300  m-1 p-1.5 hover:border-black ${
+              className={`cursor-pointer border-2 border-gray-300  m-1 p-1.5 flex items-center justify-center hover:border-black ${
                 whichBars[0] ? 'bg-gray-300' : ''
               }`}
               onClick={() => toggleFilter(0)}
             >
+              <TiFlash className="mr-2" />
               energy
             </div>
             <div
-              className={`cursor-pointer border-2 border-gray-300  m-1 p-1.5 hover:border-black ${
+              className={`cursor-pointer border-2 border-gray-300  m-1 p-1.5 flex items-center justify-center hover:border-black ${
                 whichBars[1] ? 'bg-gray-300' : ''
               }`}
               onClick={() => toggleFilter(1)}
             >
+              <FaGuitar className="mr-2" />
               acousticness
             </div>
             <div
-              className={`cursor-pointer border-2 border-gray-300  m-1 p-1.5 hover:border-black ${
+              className={`cursor-pointer border-2 border-gray-300  m-1 p-1.5 flex items-center justify-center hover:border-black ${
                 whichBars[2] ? 'bg-gray-300' : ''
               }`}
               onClick={() => toggleFilter(2)}
             >
+              <GiBootPrints className="mr-2" />
               danceability
             </div>
             <div
-              className={`cursor-pointer border-2 border-gray-300  m-1 p-1.5 hover:border-black ${
+              className={`cursor-pointer border-2 border-gray-300  m-1 p-1.5 flex items-center justify-center hover:border-black ${
                 whichBars[3] ? 'bg-gray-300' : ''
               }`}
               onClick={() => toggleFilter(3)}
             >
+              <GiTrumpet className="mr-2" />
               instrumentalness
             </div>
             <div
-              className={`cursor-pointer border-2 border-gray-300  m-1 p-1.5 hover:border-black ${
+              className={`cursor-pointer border-2 border-gray-300  m-1 p-1.5 flex items-center justify-center hover:border-black ${
                 whichBars[4] ? 'bg-gray-300' : ''
               }`}
               onClick={() => toggleFilter(4)}
             >
+              <BiPulse className="mr-2" />
               liveness
             </div>
             <div
-              className={`cursor-pointer border-2 border-gray-300  m-1 p-1.5 hover:border-black ${
+              className={`cursor-pointer border-2 border-gray-300  m-1 p-1.5 flex items-center justify-center hover:border-black ${
                 whichBars[5] ? 'bg-gray-300' : ''
               }`}
               onClick={() => toggleFilter(5)}
             >
+              <GiNothingToSay className="mr-2" />
               speechiness
             </div>
           </div>
