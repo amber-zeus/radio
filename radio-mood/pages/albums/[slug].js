@@ -12,6 +12,7 @@ const AlbumDetails = () => {
   const { slug } = router.query;
   const [albumDetails, setAlbumDetails] = useState(null);
   const [trackList, setTrackList] = useState(null);
+  const [showFilters, setShowFilters] = useState(false);
 
   useEffect(() => {
     if (slug) {
@@ -60,7 +61,7 @@ const AlbumDetails = () => {
             <div className="text-5xl ">{albumDetails.artistName}</div>
             <div className="text-3xl mt-2">{albumDetails.name}</div>
             <div className="p-4">
-              {albumDetails && albumDetails.imageUrl && (
+              {albumDetails.imageUrl && (
                 <Image
                   src={albumDetails.imageUrl}
                   height={300}
@@ -70,6 +71,41 @@ const AlbumDetails = () => {
               )}
             </div>
           </div>
+
+          {!showFilters && (
+            <div
+              className="mt-4 m-1 p-1.5 text-center border-2 w-32 cursor-pointer hover:border-black"
+              onClick={() => setShowFilters(!showFilters)}
+            >
+              show filters
+            </div>
+          )}
+
+          {showFilters && (
+            <div className="mt-4 flex flex-wrap">
+              <div
+                className="cursor-pointer border-2 m-1 p-1.5 hover:border-black text-gray-500"
+                onClick={() => setShowFilters(!showFilters)}
+              >
+                hide filters
+              </div>
+              <div className="cursor-pointer border-2 m-1 p-1.5 hover:border-black">
+                energy
+              </div>
+              <div className="cursor-pointer border-2 m-1 p-1.5 hover:border-black">
+                speechiness
+              </div>
+              <div className="cursor-pointer border-2 m-1 p-1.5 hover:border-black">
+                acousticness
+              </div>
+              <div className="cursor-pointer border-2 m-1 p-1.5 hover:border-black">
+                instrumentalness
+              </div>
+              <div className="cursor-pointer border-2 m-1 p-1.5 hover:border-black">
+                liveness
+              </div>
+            </div>
+          )}
 
           <Graph />
 
