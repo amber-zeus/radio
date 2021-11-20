@@ -7,7 +7,7 @@ export const HeadDescription = () => {
 
       <div className="not-italic" style={{fontFamily: 'HelveticaNowTextBold'}}>
         <br/>
-        <div className="underline">Find quickly by:</div>
+        <span className="underline">Thanks to our solution you could find by these parameter</span>:
         <ul className="text-sm">
         <li>energy</li>
         <li>acousticness</li>

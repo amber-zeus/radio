@@ -3,6 +3,9 @@ import {OneTrackGraph,} from '../../components/frontend';
 import {useRouter} from 'next/router';
 import {Graph} from "../../components/frontend/Graph";
 import Image from 'next/image'
+import {useEffect} from "react";
+import {FetchSpotifyApi} from "../../components/FetchSpotifyApi";
+import React, { useState } from 'react';
 
 const mockedServerAudioFeatures = {
   energy: 0.842,
@@ -37,8 +40,13 @@ const AlbumDetails = ({children, href}) => {
 
   const [album, artist] = router.query?.id?.split('_') || [];
   const album_data = JSON.parse(router.query?.album || '{}');
-
-  console.log(album_data.imageUrl)
+  const [songData, setSongData] = useState({})
+  // useEffect(() => {
+  //   FetchSpotifyApi().then((data) => setSongData(data))
+  // }, [])
+  //
+  //
+  // console.log(album_data.imageUrl)
 
   console.log(album);
   console.log(artist);
@@ -82,6 +90,7 @@ const AlbumDetails = ({children, href}) => {
         </div>
 
         <Graph/>
+
 
         <ul style={{fontFamily: 'HelveticaNowDisplayBlk '}} className="m-4">
           {tracksList.map((track) => {
