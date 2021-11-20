@@ -15,7 +15,6 @@ export default function Home() {
 
           <HeadTitle style={{fontFamily: "HelveticaNowTextBold"}}/>
           <HeadDescription />
-
           <ReleasesList/>
           <LandingPage/>
         </div>

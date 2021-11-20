@@ -1,5 +1,7 @@
 import Link from "next/link";
 import Image from 'next/image'
+import React, { useState } from 'react';
+import {useRouter} from "next/router";
 
 export default function ReleasesList({
                                        releases,
@@ -15,12 +17,21 @@ export default function ReleasesList({
       return <p></p>
     }
 
+    const [albumDetails, setAlbumDetails] = useState({});
+    const router = useRouter()
+
 
     return releases.map(release => (
       <div className="md:w-1/2 md:overflow-hidden w-full">
-        <Link href={`albums/${release.name}_${release.artist}`}>
+        {/*<Link href={`albums/${release.name}_${release.artist}`}  >*/}
+
           <div className="text-center p-4 border-2 cursor-pointer border-gray-100 m-2 hover:border-black sm:flex"
-               onClick={() => onReleaseClick(release)}>
+               onClick={() => {
+                 onReleaseClick(release)
+                 setAlbumDetails(release)
+                 router.push({pathname: `albums/${release.name}_${release.artist}`, query: {album: release}})
+               }
+               }>
             <Image width={250} height={250} src={release.imageUrl} layout="intrinsic"/>
             <div className="p-2 align-middle justify-content text-center w-full h-full sm:pt-8 text-lg">
               <p style={{fontFamily: "HelveticaNowDisplayBlk"}}>{release.artist}</p>
@@ -31,7 +42,7 @@ export default function ReleasesList({
               <div className="md:absolute genreRelative sm:invisible visible">{release.releaseDate.slice(0, 4)}</div>
             </div>
           </div>
-        </Link>
+        {/*</Link>*/}
       </div>
 
     ));

@@ -82,6 +82,45 @@ const data = [
     speechiness: 0.3,
 
   },
+  {
+    name: "9",
+    energy: 0.23,
+    acousticness: 0.33,
+    danceability: 0.44,
+    instrumentalness: 0.11,
+    liveness: 0.2,
+    speechiness: 0.3,
+
+  },
+  {
+    name: "10",
+    energy: 0.23,
+    acousticness: 0.33,
+    danceability: 0.44,
+    instrumentalness: 0.11,
+    liveness: 0.2,
+    speechiness: 0.3,
+
+  },
+  {
+    name: "11",
+    energy: 0.23,
+    acousticness: 0.33,
+    danceability: 0.44,
+    instrumentalness: 0.11,
+    liveness: 0.2,
+    speechiness: 0.3,
+
+  },
+  {
+    name: "12",
+    energy: 0.23,
+    acousticness: 0.33,
+    danceability: 0.44,
+    instrumentalness: 0.11,
+    liveness: 0.2,
+    speechiness: 0.3,
+  },
 ];
 
 export const Graph = () => {
