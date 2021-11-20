@@ -4,126 +4,134 @@ import {Bar, BarChart, CartesianGrid, Legend, Tooltip, XAxis, YAxis} from "recha
 const data = [
   {
     name: "1",
-    energy: 0.23,
-    acousticness: 0.33,
-    danceability: 0.44,
-    instrumentalness: 0.11,
-    liveness: 0.2,
-    speechiness: 0.3,
+    energy:rand(),
+    acousticness: rand(),
+    danceability: rand(),
+    instrumentalness: rand(),
+    liveness: rand(),
+    speechiness: rand(),
 
   },
   {
     name: "2",
-    energy: 0.23,
-    acousticness: 0.53,
-    danceability: 0.14,
-    instrumentalness: 0.41,
-    liveness: 0.23,
-    speechiness: 0.37,
+    energy: rand(),
+    acousticness: rand(),
+    danceability: rand(),
+    instrumentalness: rand(),
+    liveness: rand(),
+    speechiness: rand(),
 
   },
-  {
+   {
     name: "3",
-    energy: 1,
-    acousticness: 0.33,
-    danceability: 0.44,
-    instrumentalness: 0.11,
-    liveness: 0.2,
-    speechiness: 0.3,
+    energy: rand(),
+    acousticness: rand(),
+    danceability: rand(),
+    instrumentalness: rand(),
+    liveness: rand(),
+    speechiness: rand(),
 
   },
-  {
+   {
     name: "4",
-    energy: 0.23,
-    acousticness: 0.33,
-    danceability: 0.44,
-    instrumentalness: 0.11,
-    liveness: 0.2,
-    speechiness: 0.3,
+    energy: rand(),
+    acousticness: rand(),
+    danceability: rand(),
+    instrumentalness: rand(),
+    liveness: rand(),
+    speechiness: rand(),
 
   },
-  {
+   {
     name: "5",
-    energy: 0.23,
-    acousticness: 0.33,
-    danceability: 0.44,
-    instrumentalness: 0.11,
-    liveness: 0.2,
-    speechiness: 0.3,
+    energy: rand(),
+    acousticness: rand(),
+    danceability: rand(),
+    instrumentalness: rand(),
+    liveness: rand(),
+    speechiness: rand(),
 
   },
-  {
+   {
     name: "6",
-    energy: 0.23,
-    acousticness: 0.33,
-    danceability: 0.44,
-    instrumentalness: 0.11,
-    liveness: 0.2,
-    speechiness: 0.3,
+    energy: rand(),
+    acousticness: rand(),
+    danceability: rand(),
+    instrumentalness: rand(),
+    liveness: rand(),
+    speechiness: rand(),
 
   },
-  {
+   {
     name: "7",
-    energy: 0.23,
-    acousticness: 0.33,
-    danceability: 0.44,
-    instrumentalness: 0.11,
-    liveness: 0.2,
-    speechiness: 0.3,
+    energy: rand(),
+    acousticness: rand(),
+    danceability: rand(),
+    instrumentalness: rand(),
+    liveness: rand(),
+    speechiness: rand(),
 
   },
-  {
+   {
     name: "8",
-    energy: 0.23,
-    acousticness: 0.33,
-    danceability: 0.44,
-    instrumentalness: 0.11,
-    liveness: 0.2,
-    speechiness: 0.3,
+    energy: rand(),
+    acousticness: rand(),
+    danceability: rand(),
+    instrumentalness: rand(),
+    liveness: rand(),
+    speechiness: rand(),
 
   },
-  {
+   {
     name: "9",
-    energy: 0.23,
-    acousticness: 0.33,
-    danceability: 0.44,
-    instrumentalness: 0.11,
-    liveness: 0.2,
-    speechiness: 0.3,
+    energy: rand(),
+    acousticness: rand(),
+    danceability: rand(),
+    instrumentalness: rand(),
+    liveness: rand(),
+    speechiness: rand(),
 
   },
-  {
+   {
     name: "10",
-    energy: 0.23,
-    acousticness: 0.33,
-    danceability: 0.44,
-    instrumentalness: 0.11,
-    liveness: 0.2,
-    speechiness: 0.3,
+    energy: rand(),
+    acousticness: rand(),
+    danceability: rand(),
+    instrumentalness: rand(),
+    liveness: rand(),
+    speechiness: rand(),
 
   },
-  {
+   {
     name: "11",
-    energy: 0.23,
-    acousticness: 0.33,
-    danceability: 0.44,
-    instrumentalness: 0.11,
-    liveness: 0.2,
-    speechiness: 0.3,
+    energy: rand(),
+    acousticness: rand(),
+    danceability: rand(),
+    instrumentalness: rand(),
+    liveness: rand(),
+    speechiness: rand(),
 
   },
-  {
+   {
     name: "12",
-    energy: 0.23,
-    acousticness: 0.33,
-    danceability: 0.44,
-    instrumentalness: 0.11,
-    liveness: 0.2,
-    speechiness: 0.3,
+    energy: rand(),
+    acousticness: rand(),
+    danceability: rand(),
+    instrumentalness: rand(),
+    liveness: rand(),
+    speechiness: rand(),
+
   },
+
 ];
 
+function rand(){
+  return ( Math.floor (Math.random() *100 ))
+}
+
 export const Graph = () => {
+  {console.log(Math.random())}
+
   return (
     <div style={{fontFamily: "HelveticaNowTextBold"}} className="pt-16">
       <BarChart
