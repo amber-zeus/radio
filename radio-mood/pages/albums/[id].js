@@ -76,7 +76,7 @@ const AlbumDetails = ({ children, href }) => {
           })}
         </ul>
 
-        <div className="text-center m-auto flex align-center">
+        <div className="m-auto flex justify-content mb-4">
           <OneTrackGraph/>
         </div>
       </div>

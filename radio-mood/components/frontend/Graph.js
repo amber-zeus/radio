@@ -1,7 +1,7 @@
 import React from "react";
 import {Bar, BarChart, CartesianGrid, Legend, Tooltip, XAxis, YAxis} from "recharts";
 
-const data = [
+let data = [
   {
     name: "1",
     energy:rand(),
