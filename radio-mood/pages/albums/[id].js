@@ -67,10 +67,10 @@ const AlbumDetails = ({ children, href }) => {
 
         <Graph />
 
-        <ul style={{ fontFamily: 'HelveticaNowDisplayBlk ' }} className="m-4">
+        <ul style={{ fontFamily: 'HelveticaNowDisplayBlk ' }} className="m-4 flex flex-wrap">
           {trackList &&
             trackList.map((track, index) => (
-              <li className="p-0.5 hover:underline cursor-pointer text-center">
+              <li className="cursor-pointer border-2 m-1 p-1 hover:border-black">
                 {index}. {track.name}
               </li>
             ))}
