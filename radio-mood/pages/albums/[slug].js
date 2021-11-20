@@ -98,10 +98,10 @@ const AlbumDetails = () => {
             style={{ fontFamily: 'MontserratV18Latin900' }}
           >
             <div>
-              <div className="text-5xl pl-10">{albumDetails.artistName}</div>
-              <div className="text-3xl mt-2 pl-10 pb-4">{albumDetails.name}</div>
+              <div className="text-3xl pl-4 md:pl-10 md:text-5xl">{albumDetails.artistName}</div>
+              <div className="text-xl mt-2 pl-4 md:pl-10 pb-4 md:text-3xl">{albumDetails.name}</div>
                <div className="flex flex-wrap -mx-3 overflow-hidden">
-                 <div className="my-3 px-3 m-auto md:w-1/2 overflow-hidden text-center">
+                 <div className="my-3 md:px-3 m-auto md:w-1/2 overflow-hidden text-center">
                    {albumDetails.imageUrl && (
                      <Image
                        src={albumDetails.imageUrl}
