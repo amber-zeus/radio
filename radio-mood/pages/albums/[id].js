@@ -70,8 +70,8 @@ const AlbumDetails = ({ children, href }) => {
         <ul style={{ fontFamily: 'HelveticaNowDisplayBlk ' }} className="m-4 flex flex-wrap">
           {trackList &&
             trackList.map((track, index) => (
-              <li className="cursor-pointer border-2 m-1 p-1 hover:border-black">
-                {index}. {track.name}
+              <li className="cursor-pointer border-2 m-1 p-1.5 hover:border-black">
+                {index+1}. {track.name}
               </li>
             ))}
         </ul>
