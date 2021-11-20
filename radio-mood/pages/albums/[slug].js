@@ -37,6 +37,19 @@ const AlbumDetails = () => {
     }
   }, [slug]);
 
+  const toggleFilter = (id) => {
+    const bars = []
+    if (whichBars.filter(Boolean).length === 1) {
+      if (whichBars.findIndex(Boolean) === id) {
+        setWhichBars([1, 1, 1, 1, 1, 1])
+        return
+      } else {
+      }
+    }
+    bars[id]=!bars[id]
+    setWhichBars(bars)
+  }
+
   return (
     albumDetails && (
       <div className="mt-4 mx-2 pb-12">
@@ -75,15 +88,14 @@ const AlbumDetails = () => {
 
           {!showFilters &&  <div className="mt-4 m-1 p-1.5 text-center border-2 w-32 cursor-pointer hover:border-black" onClick={()=>setShowFilters(!showFilters)}>show filters</div>}
 
-
           {showFilters && <div className="mt-4 flex flex-wrap">
             <div className="cursor-pointer border-2 m-1 p-1.5 hover:border-black text-gray-500" onClick={()=>setShowFilters(!showFilters)}>hide filters</div>
-            <div className="cursor-pointer border-2 m-1 p-1.5 hover:border-black" onClick={() => setWhichBars((whichBars[0]=!whichBars[0],[...whichBars]))}>energy</div>
-            <div className="cursor-pointer border-2 m-1 p-1.5 hover:border-black" onClick={() => setWhichBars((whichBars[1]=!whichBars[1],[...whichBars]))}>acousticness</div>
-            <div className="cursor-pointer border-2 m-1 p-1.5 hover:border-black" onClick={() => setWhichBars((whichBars[2]=!whichBars[2],[...whichBars]))}>danceability</div>
-            <div className="cursor-pointer border-2 m-1 p-1.5 hover:border-black" onClick={() => setWhichBars((whichBars[3]=!whichBars[3],[...whichBars]))}>instrumentalness</div>
-            <div className="cursor-pointer border-2 m-1 p-1.5 hover:border-black" onClick={() => setWhichBars((whichBars[4]=!whichBars[4],[...whichBars]))}>liveness</div>
-            <div className="cursor-pointer border-2 m-1 p-1.5 hover:border-black" onClick={() => setWhichBars((whichBars[5]=!whichBars[5],[...whichBars]))}>speechiness</div>
+            <div className="cursor-pointer border-2 m-1 p-1.5 hover:border-black" onClick={() => toggleFilter(0)}>energy</div>
+            <div className="cursor-pointer border-2 m-1 p-1.5 hover:border-black" onClick={() => toggleFilter(1)}>acousticness</div>
+            <div className="cursor-pointer border-2 m-1 p-1.5 hover:border-black" onClick={() => toggleFilter(2)}>danceability</div>
+            <div className="cursor-pointer border-2 m-1 p-1.5 hover:border-black" onClick={() => toggleFilter(3)}>instrumentalness</div>
+            <div className="cursor-pointer border-2 m-1 p-1.5 hover:border-black" onClick={() => toggleFilter(4)}>liveness</div>
+            <div className="cursor-pointer border-2 m-1 p-1.5 hover:border-black" onClick={() => toggleFilter(5)}>speechiness</div>
           </div>}
 
 
