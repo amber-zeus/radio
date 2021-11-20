@@ -1,36 +1,43 @@
 import React from "react";
-import {PolarAngleAxis, PolarGrid, PolarRadiusAxis, Radar, RadarChart} from "recharts";
+import {PolarAngleAxis, PolarGrid, PolarRadiusAxis, Radar, RadarChart, Tooltip} from "recharts";
 
-const buildData = ({speechiness, energy, acousticness, instrumentalness, liveness, ...data}) => [
+const buildData = ({
+  speechiness,
+  energy,
+  acousticness,
+  instrumentalness,
+  liveness,
+  ...data
+}) => [
   {
-    subject: "energy",
+    subject: 'energy',
     A: energy,
-    fullMark: 100
+    fullMark: 100,
   },
   {
-    subject: "speechiness",
+    subject: 'speechiness',
     A: speechiness,
-    fullMark: 100
+    fullMark: 100,
   },
   {
-    subject: "acousticness",
+    subject: 'acousticness',
     A: acousticness,
-    fullMark: 100
+    fullMark: 100,
   },
   {
-    subject: "instrumentalness",
+    subject: 'instrumentalness',
     A: instrumentalness,
-    fullMark: 100
+    fullMark: 100,
   },
   {
-    subject: "liveness",
+    subject: 'liveness',
     A: liveness,
-    fullMark: 100
+    fullMark: 100,
   },
 ];
 
 function rand() {
-  return (Math.floor(Math.random() * 100))
+  return Math.floor(Math.random() * 100);
 }
 
 const CustomTooltip = ({active, payload, label}) => {
@@ -46,7 +53,7 @@ const CustomTooltip = ({active, payload, label}) => {
 
   return null;
 };
-export const OneTrackGraph = ({track}) => {
+export const OneTrackGraph = ({ track }) => {
   return (
     <div className="m-auto pt-4" style={{fontFamily: "HelveticaNowTextBold"}}>
       <div className="md:inline-block hidden">
@@ -87,7 +94,6 @@ export const OneTrackGraph = ({track}) => {
           />
         </RadarChart>
       </div>
-
     </div>
   );
-}
+};
