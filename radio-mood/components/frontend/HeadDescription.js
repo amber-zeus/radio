@@ -1,14 +1,23 @@
 export const HeadDescription = () => {
   return (
     <div className="italic" style={{fontFamily: "HelveticaNowTextBold"}}>
-      Don't judge an album by its cover.
+
+      are you tired of listening whole albums?
       <br/>
-      You can get to know a good album only after listening to its content, and the perfect album reflects our mood.
-      <br/>
-      Check which album will put you in a good mood,
-      <br/>
-      which will calm you down and to which you will want to dance on the table.
-      <br/>
+
+      <div className="not-italic" style={{fontFamily: 'HelveticaNowTextBold'}}>
+        <br/>
+        <div className="underline">Find quickly tracks on album by:</div>
+        <ul className="text-sm">
+        <li>energy</li>
+        <li>acousticness</li>
+        <li>danceability</li>
+        <li>instrumentalness</li>
+        <li>liveness</li>
+        <li>speechiness</li>
+        </ul>
+
+      </div>
     </div>
   )
 }
