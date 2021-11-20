@@ -1,9 +1,12 @@
+import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
 import newonceApiClient from '../../lib/apiClients/NewonceApiClient';
 import ReleasesList from './ReleasesList';
+
 export const LandingPage = () => {
   const [releases, setReleases] = useState([]);
   const [loading, setLoading] = useState(true);
+  const router = useRouter();
 
   useEffect(() => {
     newonceApiClient.fetch('releases/most_rated').then(releasesData => {
@@ -13,6 +16,7 @@ export const LandingPage = () => {
           imageUrl: release.image.url,
           name: release.name,
           releaseDate: release.release_date,
+          slug: release.slug,
         })),
       );
       setLoading(false);
@@ -22,7 +26,15 @@ export const LandingPage = () => {
   return (
     <div className="">
       <div className="py-4">
-        <ReleasesList releases={releases} loading={loading} />
+        <ReleasesList
+          releases={releases}
+          loading={loading}
+          onReleaseClick={release =>
+            router.push({
+              pathname: `albums/${release.slug}`,
+            })
+          }
+        />
       </div>
     </div>
   );
