@@ -1,7 +1,7 @@
 import React from "react";
 import {Bar, BarChart, CartesianGrid, Legend, Tooltip, XAxis, YAxis} from "recharts";
 
-let buildData = (trackInfo) => (whichBars) => [
+let buildData = (tracksInfo = undefined) => (whichBars) => (tracksInfo || [
   {
     name: "1",
     energy:rand(),
@@ -123,8 +123,8 @@ let buildData = (trackInfo) => (whichBars) => [
 
   },
 
-].map(track => ({
-  name: track.name,
+]).map((track, idx) => ({
+  name: idx + 1,
   ...whichBars[0] ? {energy: track.energy} : {},
   ...whichBars[1] ? {acousticness: track.acousticness} : {},
   ...whichBars[2] ? {danceability: track.danceability} : {},
@@ -137,7 +137,7 @@ function rand(){
   return ( Math.floor (Math.random() *100 ))
 }
 
-export const Graph = ({artist, album, albumId, whichBars = [0,1,0,0,0,0]}) => {
+export const Graph = ({artist, album, albumId, data, whichBars = [0,1,0,0,0,0]}) => {
   {console.log(Math.random())}
 
   return (
@@ -145,7 +145,7 @@ export const Graph = ({artist, album, albumId, whichBars = [0,1,0,0,0,0]}) => {
       <BarChart
         width={800}
         height={300}
-        data={buildData()(whichBars)}
+        data={buildData(data)(whichBars)}
         margin={{
           top: 5,
           right: 30,
