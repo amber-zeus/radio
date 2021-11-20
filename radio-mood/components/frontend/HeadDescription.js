@@ -7,7 +7,7 @@ export const HeadDescription = () => {
 
       <div className="not-italic" style={{fontFamily: 'HelveticaNowTextBold'}}>
         <br/>
-        <div className="underline">Find quickly tracks on album by:</div>
+        <div className="underline">Find quickly by:</div>
         <ul className="text-sm">
         <li>energy</li>
         <li>acousticness</li>

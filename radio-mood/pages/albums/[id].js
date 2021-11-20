@@ -4,6 +4,7 @@ import {
   OneTrackGraph,
 } from '../../components/frontend';
 import { useRouter } from 'next/router';
+import {Graph} from "../../components/frontend/Graph";
 
 const mockedServerAudioFeatures = {
   energy: 0.842,
@@ -43,6 +44,7 @@ const AlbumDetails = ({ params }) => {
           </Link>
         </div>
 
+
         <div
           className="bg-blue-700 text-white p-10 text-center"
           style={{ fontFamily: 'MontserratV18Latin900' }}
@@ -51,9 +53,8 @@ const AlbumDetails = ({ params }) => {
           <div className="text-3xl mt-2">{album}</div>
         </div>
 
-        <div className="m-auto h-80 p-10 text-center flex align-center">
-          <AudioFeaturesBarChart audioFeatures={mockedServerAudioFeatures} />
-        </div>
+        <Graph/>
+
         <div className="text-center m-auto flex align-center">
           <OneTrackGraph />
         </div>
