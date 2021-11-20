@@ -1,5 +1,5 @@
 import React from "react";
-import {Bar, BarChart, CartesianGrid, Legend, Tooltip, XAxis, YAxis} from "recharts";
+import {Bar, BarChart, CartesianGrid, Legend, Tooltip, XAxis, YAxis, ResponsiveContainer} from "recharts";
 
 let buildData = (tracksInfo = undefined) => (whichBars) => (tracksInfo || [
   {
@@ -141,17 +141,10 @@ export const Graph = ({artist, album, albumId, data, whichBars = [0,1,0,0,0,0]})
   {console.log(Math.random())}
 
   return (
-    <div style={{fontFamily: "HelveticaNowTextBold"}} className="pt-2 m-auto">
+    <div style={{fontFamily: "HelveticaNowTextBold"}} className="pt-2 m-auto w-full">
+      <ResponsiveContainer width="100%" height={400}>
       <BarChart
-        width={800}
-        height={300}
         data={buildData(data)(whichBars)}
-        margin={{
-          top: 5,
-          right: 30,
-          left: 20,
-          bottom: 5
-        }}
       >
         <CartesianGrid strokeDasharray="3 3"/>
         <XAxis dataKey="name"/>
@@ -165,6 +158,7 @@ export const Graph = ({artist, album, albumId, data, whichBars = [0,1,0,0,0,0]})
         {whichBars[4] && <Bar dataKey="liveness" fill="#07a0c3"/>}
         {whichBars[5] && <Bar dataKey="speechiness" fill="#0c1713"/>}
       </BarChart>
+      </ResponsiveContainer>
     </div>
   );
 }
