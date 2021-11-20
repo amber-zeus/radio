@@ -36,6 +36,7 @@ function rand() {
 export const OneTrackGraph = () => {
   return (
     <div className="m-auto">
+
       <RadarChart
         cx={300}
         cy={250}

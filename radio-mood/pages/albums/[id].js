@@ -17,6 +17,7 @@ const AlbumDetails = ({ children, href }) => {
   const [albumDetails, setAlbumDetails] = useState(null);
   const [trackList, setTrackList] = useState(null);
   const album_data = JSON.parse(router.query?.album || '{}');
+  const [showFilters, setShowFilters] = useState(false)
 
   useEffect(() => {
     if (album && artist) {
@@ -64,6 +65,17 @@ const AlbumDetails = ({ children, href }) => {
           </div>
         </div>
 
+        {!showFilters &&  <div className="mt-4 m-1 p-1.5 text-center border-2 w-32 cursor-pointer hover:border-black" onClick={()=>setShowFilters(!showFilters)}>show filters</div>}
+
+
+        {showFilters && <div className="mt-4 flex flex-wrap">
+          <div className="cursor-pointer border-2 m-1 p-1.5 hover:border-black text-gray-500" onClick={()=>setShowFilters(!showFilters)}>hide filters</div>
+          <div className="cursor-pointer border-2 m-1 p-1.5 hover:border-black">energy</div>
+          <div className="cursor-pointer border-2 m-1 p-1.5 hover:border-black">speechiness</div>
+          <div className="cursor-pointer border-2 m-1 p-1.5 hover:border-black">acousticness</div>
+          <div className="cursor-pointer border-2 m-1 p-1.5 hover:border-black">instrumentalness</div>
+          <div className="cursor-pointer border-2 m-1 p-1.5 hover:border-black">liveness</div>
+        </div>}
 
 
         <Graph />
@@ -76,6 +88,7 @@ const AlbumDetails = ({ children, href }) => {
               </li>
             ))}
         </ul>
+
 
         <div className="m-auto flex justify-content mb-4">
           <OneTrackGraph />
