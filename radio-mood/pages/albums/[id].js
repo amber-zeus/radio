@@ -18,6 +18,7 @@ const AlbumDetails = ({ children, href }) => {
   const [trackList, setTrackList] = useState(null);
   const album_data = JSON.parse(router.query?.album || '{}');
   const [showFilters, setShowFilters] = useState(false)
+  const [whichBars, setWhichBars] = useState([1,1,1,1,1,1])
 
   useEffect(() => {
     if (album && artist) {
@@ -70,15 +71,16 @@ const AlbumDetails = ({ children, href }) => {
 
         {showFilters && <div className="mt-4 flex flex-wrap">
           <div className="cursor-pointer border-2 m-1 p-1.5 hover:border-black text-gray-500" onClick={()=>setShowFilters(!showFilters)}>hide filters</div>
-          <div className="cursor-pointer border-2 m-1 p-1.5 hover:border-black">energy</div>
-          <div className="cursor-pointer border-2 m-1 p-1.5 hover:border-black">speechiness</div>
-          <div className="cursor-pointer border-2 m-1 p-1.5 hover:border-black">acousticness</div>
-          <div className="cursor-pointer border-2 m-1 p-1.5 hover:border-black">instrumentalness</div>
-          <div className="cursor-pointer border-2 m-1 p-1.5 hover:border-black">liveness</div>
+          <div className="cursor-pointer border-2 m-1 p-1.5 hover:border-black" onClick={() => setWhichBars((whichBars[0]=!whichBars[0],[...whichBars]))}>energy</div>
+          <div className="cursor-pointer border-2 m-1 p-1.5 hover:border-black" onClick={() => setWhichBars((whichBars[1]=!whichBars[1],[...whichBars]))}>acousticness</div>
+          <div className="cursor-pointer border-2 m-1 p-1.5 hover:border-black" onClick={() => setWhichBars((whichBars[2]=!whichBars[2],[...whichBars]))}>danceability</div>
+          <div className="cursor-pointer border-2 m-1 p-1.5 hover:border-black" onClick={() => setWhichBars((whichBars[3]=!whichBars[3],[...whichBars]))}>instrumentalness</div>
+          <div className="cursor-pointer border-2 m-1 p-1.5 hover:border-black" onClick={() => setWhichBars((whichBars[4]=!whichBars[4],[...whichBars]))}>liveness</div>
+          <div className="cursor-pointer border-2 m-1 p-1.5 hover:border-black" onClick={() => setWhichBars((whichBars[5]=!whichBars[5],[...whichBars]))}>speechiness</div>
         </div>}
 
 
-        <Graph />
+        <Graph whichBars={whichBars} />
 
         <ul style={{ fontFamily: 'HelveticaNowDisplayBlk ' }} className="m-4 flex flex-wrap">
           {trackList &&
