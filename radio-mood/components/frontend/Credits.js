@@ -12,7 +12,7 @@ export const Credits = () => {
       <br/>
       Maciej Drzewiecki : Fullstack - Ruby on Rails / React
       <br/>
-      Jakub Prusakiewicz : Machine Learning & Backend development
+      Jakub Prusakiewicz : Backend development
       <br/>
       Marlena Janus : UI designer
     </div>

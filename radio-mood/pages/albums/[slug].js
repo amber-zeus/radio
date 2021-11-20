@@ -106,22 +106,22 @@ const AlbumDetails = () => {
             <div className="cursor-pointer border-2 m-1 p-1.5 hover:border-black text-gray-500"
                  onClick={() => setShowFilters(!showFilters)}>hide filters
             </div>
-            <div className="cursor-pointer border-2 m-1 p-1.5 hover:border-black"
+            <div className={`cursor-pointer border-2 m-1 p-1.5 hover:border-black ${whichBars[0] ? 'border-black' : ''}`}
                  onClick={() => toggleFilter(0)}>energy
             </div>
-            <div className="cursor-pointer border-2 m-1 p-1.5 hover:border-black"
+            <div className={`cursor-pointer border-2 m-1 p-1.5 hover:border-black ${whichBars[1] ? 'border-black' : ''}`}
                  onClick={() => toggleFilter(1)}>acousticness
             </div>
-            <div className="cursor-pointer border-2 m-1 p-1.5 hover:border-black"
+            <div className={`cursor-pointer border-2 m-1 p-1.5 hover:border-black ${whichBars[2] ? 'border-black' : ''}`}
                  onClick={() => toggleFilter(2)}>danceability
             </div>
-            <div className="cursor-pointer border-2 m-1 p-1.5 hover:border-black"
+            <div className={`cursor-pointer border-2 m-1 p-1.5 hover:border-black ${whichBars[3] ? 'border-black' : ''}`}
                  onClick={() => toggleFilter(3)}>instrumentalness
             </div>
-            <div className="cursor-pointer border-2 m-1 p-1.5 hover:border-black"
+            <div className={`cursor-pointer border-2 m-1 p-1.5 hover:border-black ${whichBars[4] ? 'border-black' : ''}`}
                  onClick={() => toggleFilter(4)}>liveness
             </div>
-            <div className="cursor-pointer border-2 m-1 p-1.5 hover:border-black"
+            <div className={`cursor-pointer border-2 m-1 p-1.5 hover:border-black ${whichBars[5] ? 'border-black' : ''}`}
                  onClick={() => toggleFilter(5)}>speechiness
             </div>
           </div>}
@@ -135,7 +135,7 @@ const AlbumDetails = () => {
           >
             {trackList &&
             trackList.map((track, index) => (
-              <li className="cursor-pointer border-2 m-1 p-1.5 hover:border-black" onClick={() => {setSelectedTrack(track)}}>
+              <li className={`cursor-pointer border-2 m-1 p-1.5 hover:border-black ${selectedTrack.name === index ?"bg-black":"" }`} onClick={() => {setSelectedTrack(track)}}>
                 {index + 1}. {track.name}
               </li>
             ))}
