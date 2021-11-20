@@ -155,7 +155,7 @@ export const Graph = ({artist, album, albumId, data, whichBars = [0,1,0,0,0,0]})
       >
         <CartesianGrid strokeDasharray="3 3"/>
         <XAxis dataKey="name"/>
-        <YAxis domain={[0, 1]}/>
+        <YAxis />
         <Tooltip/>
         <Legend/>
         {whichBars[0] && <Bar dataKey="energy" fill="#1300e9"/>}
