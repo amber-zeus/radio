@@ -33,6 +33,8 @@ const AlbumDetails = () => {
             spotifyUrl: spotifyRelease.album_details.external_urls.spotify,
           });
           setTrackList(spotifyRelease.tracks_features);
+          setSelectedTrack(spotifyRelease.tracks_features[0])
+
         });
       });
     }
@@ -140,7 +142,7 @@ const AlbumDetails = () => {
           </ul>
 
           <div className="m-auto flex justify-content mb-4">
-            <OneTrackGraph track={selectedTrack}/>
+            <OneTrackGraph track={selectedTrack} />
           </div>
         </div>
       </div>

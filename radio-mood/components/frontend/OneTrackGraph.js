@@ -60,7 +60,7 @@ export const OneTrackGraph = ({track}) => {
         <PolarGrid/>
 
         <PolarAngleAxis dataKey="subject"/>
-        <PolarRadiusAxis/>
+        <PolarRadiusAxis domain={[0,1]}/>
         <Radar
           radiusAxis={{domain: [0, 1]}}
           name="Mike"

@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import {HeadDescription, LandingPage, HeadTitle, Graph} from "../components/frontend"
+import {HeadDescription, LandingPage, HeadTitle, Graph, Credits} from "../components/frontend"
 import ReleasesList from "../components/frontend/ReleasesList";
 import Link from 'next/link'
 
@@ -17,6 +17,7 @@ export default function Home() {
           <HeadDescription />
           <ReleasesList/>
           <LandingPage/>
+          <Credits/>
         </div>
       </div>
     </>
