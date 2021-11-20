@@ -32,6 +32,7 @@ export const LandingPage = () => {
   return (
     <div className="">
       <div className="py-4">
+        Most rated albums at newonce.pl:
         <ReleasesList
           releases={releases}
           loading={loading}

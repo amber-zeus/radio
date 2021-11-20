@@ -16,7 +16,7 @@ const AlbumDetails = () => {
   const [showFilters, setShowFilters] = useState(true);
   const [whichBars, setWhichBars] = useState([1, 1, 1, 1, 1, 1]);
   const [selectedTrack, setSelectedTrack] = useState(null);
-  const [selectedTrackId, setSelectedTrackId] = useState(null);
+  const [selectedTrackId, setSelectedTrackId] = useState(0);
 
   useEffect(() => {
     const getAlbumData = () => {
@@ -70,7 +70,7 @@ const AlbumDetails = () => {
     return (
       <div className="mt-4 mx-2 pb-12">
         <div className="text-3xl max-w-4xl m-auto p-8 border-2 border-black">
-          {[...Array(10).keys()].map(e => (
+          {[...Array(1).keys()].map(e => (
             <div className="p-10">Loading...</div>
           ))}
         </div>
@@ -80,12 +80,12 @@ const AlbumDetails = () => {
 
   return (
     albumDetails && (
-      <div className="mt-4 mx-2 pb-12">
+      <div className="mt-4 mx-2 pb-52">
         <div
-          className="max-w-4xl m-auto p-8 border-2 border-black"
+          className="max-w-4xl m-auto pl-8 pr-8 pb-8 pt-4 border-2 border-black"
           style={{ fontFamily: 'MontserratV18Latin900' }}
         >
-          <div className="mb-10">
+          <div className="mb-4">
             <Link href="/" className="">
               <div
                 className="text-2xl border border-2 w-40 border-gray-300 text-center p-2 hover:border-black cursor-pointer text-newonceBlue flex items-center "
@@ -101,117 +101,111 @@ const AlbumDetails = () => {
           </div>
 
           <div
-            className="bg-newonceBlue text-white p-4 text-center"
+            className="bg-blue-700 text-white p-4  align-middle"
             style={{ fontFamily: 'MontserratV18Latin900' }}
           >
-            <div className="text-5xl ">{albumDetails.artistName}</div>
-            <div className="text-3xl mt-2">{albumDetails.name}</div>
-            <div className="p-4">
-              {albumDetails.imageUrl && (
-                <Image
-                  src={albumDetails.imageUrl}
-                  height={300}
-                  width={300}
-                  layout="intrinsic"
-                />
-              )}
+            <div>
+              <div className="text-3xl pl-4 md:pl-10 md:text-5xl">
+                {albumDetails.artistName}
+              </div>
+              <div className="text-xl mt-2 pl-4 md:pl-10 pb-4 md:text-3xl">
+                {albumDetails.name}
+              </div>
+              <div className="flex flex-wrap -mx-3 overflow-hidden">
+                <div className="my-3 md:px-3 m-auto md:w-1/2 overflow-hidden text-center">
+                  {albumDetails.imageUrl && (
+                    <Image
+                      src={albumDetails.imageUrl}
+                      height={300}
+                      width={300}
+                      layout="intrinsic"
+                    />
+                  )}
+                </div>
+
+                <div className="px-3 md:w-1/2 overflow-hidden m-auto align-center text-center">
+                  <ul
+                    style={{ fontFamily: 'HelveticaNowDisplayBlk ' }}
+                    className="m-4 flex flex-wrap"
+                  >
+                    {trackList &&
+                      trackList.map((track, index) => (
+                        <li
+                          className={`cursor-pointer border-2 m-1 p-1.5 hover:border-blue-900 border-gray-300 ${
+                            selectedTrackId === index
+                              ? 'bg-white text-black'
+                              : ''
+                          }`}
+                          onClick={() => {
+                            setSelectedTrack(track);
+                            setSelectedTrackId(index);
+                          }}
+                        >
+                          {index + 1}. {track.name}
+                        </li>
+                      ))}
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
 
-          {!showFilters && (
-            <div
-              className="mt-4 m-1 p-1.5 text-center border-2 w-32 cursor-pointer hover:border-black"
-              onClick={() => setShowFilters(!showFilters)}
-            >
-              show filters
-            </div>
-          )}
-
-          {showFilters && (
-            <div className="mt-4 flex flex-wrap">
-              <div
-                className="cursor-pointer border-2 m-1 p-1.5 hover:border-black text-gray-500"
-                onClick={() => setShowFilters(!showFilters)}
-              >
-                hide filters
-              </div>
-              <div
-                className={`cursor-pointer border-2 border-gray-300  m-1 p-1.5 hover:border-black ${
-                  whichBars[0] ? 'bg-gray-300' : ''
-                }`}
-                onClick={() => toggleFilter(0)}
-              >
-                energy
-              </div>
-              <div
-                className={`cursor-pointer border-2 border-gray-300  m-1 p-1.5 hover:border-black ${
-                  whichBars[1] ? 'bg-gray-300' : ''
-                }`}
-                onClick={() => toggleFilter(1)}
-              >
-                acousticness
-              </div>
-              <div
-                className={`cursor-pointer border-2 border-gray-300  m-1 p-1.5 hover:border-black ${
-                  whichBars[2] ? 'bg-gray-300' : ''
-                }`}
-                onClick={() => toggleFilter(2)}
-              >
-                danceability
-              </div>
-              <div
-                className={`cursor-pointer border-2 border-gray-300  m-1 p-1.5 hover:border-black ${
-                  whichBars[3] ? 'bg-gray-300' : ''
-                }`}
-                onClick={() => toggleFilter(3)}
-              >
-                instrumentalness
-              </div>
-              <div
-                className={`cursor-pointer border-2 border-gray-300  m-1 p-1.5 hover:border-black ${
-                  whichBars[4] ? 'bg-gray-300' : ''
-                }`}
-                onClick={() => toggleFilter(4)}
-              >
-                liveness
-              </div>
-              <div
-                className={`cursor-pointer border-2 border-gray-300  m-1 p-1.5 hover:border-black ${
-                  whichBars[5] ? 'bg-gray-300' : ''
-                }`}
-                onClick={() => toggleFilter(5)}
-              >
-                speechiness
-              </div>
-            </div>
-          )}
-
-          <Graph data={trackList} whichBars={whichBars} />
-
-          <ul
-            style={{ fontFamily: 'HelveticaNowDisplayBlk ' }}
-            className="m-4 flex flex-wrap"
-          >
-            {trackList &&
-              trackList.map((track, index) => (
-                <li
-                  title={JSON.stringify(selectedTrack, null, 2)}
-                  className={`cursor-pointer border-2 m-1 p-1.5 hover:border-black border-gray-300 ${
-                    selectedTrackId === index ? 'bg-gray-300' : ''
-                  }`}
-                  onClick={() => {
-                    setSelectedTrack(track);
-                    setSelectedTrackId(index);
-                  }}
-                >
-                  {index + 1}. {track.name}
-                </li>
-              ))}
-          </ul>
-
-          <div className="m-auto flex justify-content mb-4">
+          <div className="m-auto flex justify-content mb-8">
             <OneTrackGraph track={selectedTrack} />
           </div>
+
+          <div className="mt-4 flex flex-wrap m-auto justify-center">
+            <div
+              className={`cursor-pointer border-2 border-gray-300  m-1 p-1.5 hover:border-black ${
+                whichBars[0] ? 'bg-gray-300' : ''
+              }`}
+              onClick={() => toggleFilter(0)}
+            >
+              energy
+            </div>
+            <div
+              className={`cursor-pointer border-2 border-gray-300  m-1 p-1.5 hover:border-black ${
+                whichBars[1] ? 'bg-gray-300' : ''
+              }`}
+              onClick={() => toggleFilter(1)}
+            >
+              acousticness
+            </div>
+            <div
+              className={`cursor-pointer border-2 border-gray-300  m-1 p-1.5 hover:border-black ${
+                whichBars[2] ? 'bg-gray-300' : ''
+              }`}
+              onClick={() => toggleFilter(2)}
+            >
+              danceability
+            </div>
+            <div
+              className={`cursor-pointer border-2 border-gray-300  m-1 p-1.5 hover:border-black ${
+                whichBars[3] ? 'bg-gray-300' : ''
+              }`}
+              onClick={() => toggleFilter(3)}
+            >
+              instrumentalness
+            </div>
+            <div
+              className={`cursor-pointer border-2 border-gray-300  m-1 p-1.5 hover:border-black ${
+                whichBars[4] ? 'bg-gray-300' : ''
+              }`}
+              onClick={() => toggleFilter(4)}
+            >
+              liveness
+            </div>
+            <div
+              className={`cursor-pointer border-2 border-gray-300  m-1 p-1.5 hover:border-black ${
+                whichBars[5] ? 'bg-gray-300' : ''
+              }`}
+              onClick={() => toggleFilter(5)}
+            >
+              speechiness
+            </div>
+          </div>
+
+          <Graph data={trackList} whichBars={whichBars} />
         </div>
       </div>
     )
