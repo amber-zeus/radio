@@ -141,24 +141,7 @@ const AlbumDetails = () => {
           </div>
 
 
-          {!showFilters && (
-            <div
-              className="mt-4 m-1 p-1.5 text-center border-2 w-32 cursor-pointer hover:border-black"
-              onClick={() => setShowFilters(!showFilters)}
-            >
-              show filters
-            </div>
-          )}
-
-
-          {showFilters && (
-            <div className="mt-4 flex flex-wrap">
-              <div
-                className="cursor-pointer border-2 m-1 p-1.5 hover:border-black text-gray-500"
-                onClick={() => setShowFilters(!showFilters)}
-              >
-                hide filters
-              </div>
+            <div className="mt-4 flex flex-wrap m-auto justify-center">
               <div
                 className={`cursor-pointer border-2 border-gray-300  m-1 p-1.5 hover:border-black ${
                   whichBars[0] ? 'bg-gray-300' : ''
@@ -208,7 +191,7 @@ const AlbumDetails = () => {
                 speechiness
               </div>
             </div>
-          )}
+
           <Graph data={trackList} whichBars={whichBars}/>
 
 
