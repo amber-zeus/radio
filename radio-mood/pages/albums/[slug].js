@@ -95,7 +95,6 @@ const AlbumDetails = () => {
                 className="text-2xl border border-2 w-40 border-gray-300 text-center p-2 hover:border-black cursor-pointer text-newonceBlue flex items-center "
                 style={{
                   fontFamily: 'HelveticaNowDisplayBlk',
-                  textShadow: '2px 1px #000',
                 }}
               >
                 <TiArrowLeftThick className="mr-2" />
