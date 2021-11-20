@@ -8,7 +8,7 @@ export const Credits = () => {
       (2021-11-20)
       <br/>
       <br/>
-      Patryk Siewiera: Frontend & Audio Enginering
+      Patryk Siewiera: Frontend & Audio Engineering
       <br/>
       Maciej Drzewiecki : Fullstack - Ruby on Rails / React
       <br/>
