@@ -14,7 +14,7 @@ export const HeadDescription = () => {
       >
         <br />
         <span className="underline">
-          Thanks to our solution you could find by these parameter
+          Thanks to our solution you can see following parameters of the songs
         </span>
         :
         <ul className="text-sm flex flex-wrap m-auto">
