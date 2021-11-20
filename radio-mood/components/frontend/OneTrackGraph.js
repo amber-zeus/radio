@@ -50,11 +50,7 @@ export const OneTrackGraph = ({track}) => {
   return (
     <div className="m-auto">
       <RadarChart
-        cx={300}
-        cy={250}
-        outerRadius={200}
-        width={600}
-        height={420}
+        cx={250} cy={200} outerRadius={150} width={500} height={350}
         data={buildData(track || {})}
       >
         <PolarGrid/>
