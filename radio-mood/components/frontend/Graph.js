@@ -141,7 +141,7 @@ export const Graph = ({artist, album, albumId, data, whichBars = [0,1,0,0,0,0]})
   {console.log(Math.random())}
 
   return (
-    <div style={{fontFamily: "HelveticaNowTextBold"}} className="pt-16 m-auto">
+    <div style={{fontFamily: "HelveticaNowTextBold"}} className="pt-2 m-auto">
       <BarChart
         width={800}
         height={300}

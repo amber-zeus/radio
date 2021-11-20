@@ -136,10 +136,9 @@ const AlbumDetails = () => {
               </div>
           </div>
 
-          <div className="m-auto flex justify-content mb-4">
+          <div className="m-auto flex justify-content mb-8">
             <OneTrackGraph track={selectedTrack}/>
           </div>
-          <Graph data={trackList} whichBars={whichBars}/>
 
 
           {!showFilters && (
@@ -210,6 +209,8 @@ const AlbumDetails = () => {
               </div>
             </div>
           )}
+          <Graph data={trackList} whichBars={whichBars}/>
+
 
 
         </div>
