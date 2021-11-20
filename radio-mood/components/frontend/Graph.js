@@ -133,7 +133,7 @@ export const Graph = () => {
   {console.log(Math.random())}
 
   return (
-    <div style={{fontFamily: "HelveticaNowTextBold"}} className="pt-16">
+    <div style={{fontFamily: "HelveticaNowTextBold"}} className="pt-16 m-auto">
       <BarChart
         width={800}
         height={300}

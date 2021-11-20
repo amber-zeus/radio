@@ -72,30 +72,31 @@ const AlbumDetails = ({children, href}) => {
 
 
         <div
-          className="bg-blue-700 text-white p-10 text-center"
+          className="bg-blue-700 text-white p-4 text-center"
           style={{fontFamily: 'MontserratV18Latin900'}}
         >
           <div className="text-5xl ">{artist}</div>
           <div className="text-3xl mt-2">{album}</div>
+          <div className="p-4">
+            {(album_data.imageUrl) &&
+            <Image src={album_data.imageUrl}
+                   height={300}
+                   width={300}
+                   layout="intrinsic"
+            />
+            }
+          </div>
         </div>
 
-        <div className="p-4">
-          {(album_data.imageUrl) &&
-          <Image src={album_data.imageUrl}
-                 height={300}
-                 width={300}
-                 layout="intrinsic"
-          />
-          }
-        </div>
+
 
         <Graph/>
 
 
-        <ul style={{fontFamily: 'HelveticaNowDisplayBlk '}} className="m-4">
+        <ul style={{fontFamily: 'HelveticaNowDisplayBlk '}} className="m-4 flex flex-wrap">
           {tracksList.map((track) => {
             iterator += 1;
-            return <li className="p-0.5 hover:underline cursor-pointer  text-center">{iterator}. {track}</li>
+            return <li className="p-1 w-42 m-1.5 border-2 hover:underline cursor-pointer hover:border-black">{iterator}. {track}</li>
           })}
         </ul>
 
