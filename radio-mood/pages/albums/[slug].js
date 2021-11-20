@@ -15,6 +15,7 @@ const AlbumDetails = () => {
   const [showFilters, setShowFilters] = useState(true);
   const [whichBars, setWhichBars] = useState([1, 1, 1, 1, 1, 1])
   const [selectedTrack, setSelectedTrack] = useState(null);
+  const [selectedTrackId, setSelectedTrackId] = useState(null);
 
   useEffect(() => {
     if (slug) {
@@ -60,7 +61,7 @@ const AlbumDetails = () => {
           {[...Array(10).keys()].map(e => (<div className="p-10">Loading...</div>))}
         </div>
 
-      </div> )
+      </div>)
   }
 
   return (
@@ -106,23 +107,29 @@ const AlbumDetails = () => {
             <div className="cursor-pointer border-2 m-1 p-1.5 hover:border-black text-gray-500"
                  onClick={() => setShowFilters(!showFilters)}>hide filters
             </div>
-            <div className={`cursor-pointer border-2 m-1 p-1.5 hover:border-black ${whichBars[0] ? 'border-black' : ''}`}
-                 onClick={() => toggleFilter(0)}>energy
+            <div
+              className={`cursor-pointer border-2 border-gray-300  m-1 p-1.5 hover:border-black ${whichBars[0] ? 'bg-gray-300' : ''}`}
+              onClick={() => toggleFilter(0)}>energy
             </div>
-            <div className={`cursor-pointer border-2 m-1 p-1.5 hover:border-black ${whichBars[1] ? 'border-black' : ''}`}
-                 onClick={() => toggleFilter(1)}>acousticness
+            <div
+              className={`cursor-pointer border-2 border-gray-300  m-1 p-1.5 hover:border-black ${whichBars[1] ? 'bg-gray-300' : ''}`}
+              onClick={() => toggleFilter(1)}>acousticness
             </div>
-            <div className={`cursor-pointer border-2 m-1 p-1.5 hover:border-black ${whichBars[2] ? 'border-black' : ''}`}
-                 onClick={() => toggleFilter(2)}>danceability
+            <div
+              className={`cursor-pointer border-2 border-gray-300  m-1 p-1.5 hover:border-black ${whichBars[2] ? 'bg-gray-300' : ''}`}
+              onClick={() => toggleFilter(2)}>danceability
             </div>
-            <div className={`cursor-pointer border-2 m-1 p-1.5 hover:border-black ${whichBars[3] ? 'border-black' : ''}`}
-                 onClick={() => toggleFilter(3)}>instrumentalness
+            <div
+              className={`cursor-pointer border-2 border-gray-300  m-1 p-1.5 hover:border-black ${whichBars[3] ? 'bg-gray-300' : ''}`}
+              onClick={() => toggleFilter(3)}>instrumentalness
             </div>
-            <div className={`cursor-pointer border-2 m-1 p-1.5 hover:border-black ${whichBars[4] ? 'border-black' : ''}`}
-                 onClick={() => toggleFilter(4)}>liveness
+            <div
+              className={`cursor-pointer border-2 border-gray-300  m-1 p-1.5 hover:border-black ${whichBars[4] ? 'bg-gray-300' : ''}`}
+              onClick={() => toggleFilter(4)}>liveness
             </div>
-            <div className={`cursor-pointer border-2 m-1 p-1.5 hover:border-black ${whichBars[5] ? 'border-black' : ''}`}
-                 onClick={() => toggleFilter(5)}>speechiness
+            <div
+              className={`cursor-pointer border-2 border-gray-300  m-1 p-1.5 hover:border-black ${whichBars[5] ? 'bg-gray-300' : ''}`}
+              onClick={() => toggleFilter(5)}>speechiness
             </div>
           </div>}
 
@@ -135,14 +142,20 @@ const AlbumDetails = () => {
           >
             {trackList &&
             trackList.map((track, index) => (
-              <li className={`cursor-pointer border-2 m-1 p-1.5 hover:border-black ${selectedTrack.name === index ?"bg-black":"" }`} onClick={() => {setSelectedTrack(track)}}>
+              <li title={JSON.stringify(selectedTrack, null, 2)}
+                  className={`cursor-pointer border-2 m-1 p-1.5 hover:border-black border-gray-300 ${selectedTrackId === index ? 'bg-gray-300' : ''}`}
+                  onClick={() => {
+                    setSelectedTrack(track)
+                    setSelectedTrackId(index)
+                  }
+                  }>
                 {index + 1}. {track.name}
               </li>
             ))}
           </ul>
 
           <div className="m-auto flex justify-content mb-4">
-            <OneTrackGraph track={selectedTrack} />
+            <OneTrackGraph track={selectedTrack}/>
           </div>
         </div>
       </div>
